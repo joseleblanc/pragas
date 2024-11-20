@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identificação de Pragas - Soja</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background: #4CAF50;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            font-size: 2rem;
+        }
+        .container {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .search-box {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            gap: 1rem;
+        }
+        .search-box input {
+            width: 400px;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        .search-box input:focus {
+            border-color: #4CAF50;
+        }
+        .search-box button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        .search-box button:hover {
+            background-color: #45a049;
+        }
+        .praga {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .praga:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+        .praga h2 {
+            color: #4CAF50;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        .praga p {
+            margin: 0.5rem 0;
+            font-size: 1rem;
+        }
+        .praga .imagens {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        .praga img {
+            max-width: 22%;
+            height: auto;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .praga img:hover {
+            transform: scale(1.05);
+        }
+        .hidden {
+            display: none;
+        }
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.7);
+            padding-top: 60px;
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Identificação de Pragas da Soja</h1>
+    </header>
+    <div class="container">
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Pesquise pelo nome da praga...">
+            <button onclick="pesquisarPragas()">
+                <img src="img.pragas/lupa.jpg" alt="Pesquisar" style="width: 20px; height: 20px;">
+            </button>
+        </div>
+
+        <!-- Lagarta-da-soja -->
+        <div class="praga" data-nome="lagarta-da-soja">
+            <h2>Lagarta-da-soja</h2>
+            <p><strong>Nome científico:</strong> Anticarsia gemmatalis</p>
+            <p><strong>Ordem:</strong> Lepidoptera</p>
+            <p><strong>Origem:</strong> América do Sul</p>
+            <p><strong>Tipo de Dano:</strong> Desfolha</p>
+            <div class="imagens">
+                <img src="img.pragas/Lagarta-da-soja1.jpg" alt="Lagarta-da-soja 1">
+                <img src="img.pragas/Lagarta-da-soja2.jpg" alt="Lagarta-da-soja 2">
+                <img src="img.pragas/Lagarta-da-soja3.jpg" alt="Lagarta-da-soja 3">
+                <img src="img.pragas/Lagarta-da-soja4.jpg" alt="Lagarta-da-soja 4">
+                <img src="img.pragas/Lagarta-da-soja5.jpg" alt="Lagarta-da-soja 5">
+            </div>
+        </div>
+
+        <!-- Percevejo-marrom -->
+        <div class="praga" data-nome="percevejo-marrom">
+            <h2>Percevejo-marrom</h2>
+            <p><strong>Nome científico:</strong> Euschistus heros</p>
+            <p><strong>Ordem:</strong> Hemiptera</p>
+            <p><strong>Origem:</strong> América Latina</p>
+            <p><strong>Tipo de Dano:</strong> Sugamento de seiva</p>
+            <div class="imagens">
+                <img src="img.pragas/Percevejo-marrom1.jpg" alt="Percevejo-marrom 1">
+                <img src="img.pragas/Percevejo-marrom2.jpg" alt="Percevejo-marrom 2">
+                <img src="img.pragas/Percevejo-marrom3.jpg" alt="Percevejo-marrom 3">
+                <img src="img.pragas/Percevejo-marrom4.jpg" alt="Percevejo-marrom 4">
+                <img src="img.pragas/Percevejo-marrom5.jpg" alt="Percevejo-marrom 5">
+            </div>
+        </div>
+
+        <!-- Percevejo-verde -->
+        <div class="praga" data-nome="percevejo-verde">
+            <h2>Percevejo-verde</h2>
+            <p><strong>Nome científico:</strong> Nezara viridula</p>
+            <p><strong>Ordem:</strong> Hemiptera</p>
+            <p><strong>Origem:</strong> Global</p>
+            <p><strong>Tipo de Dano:</strong> Sugamento de seiva</p>
+            <div class="imagens">
+                <img src="img.pragas/Percevejo-verde1.jpg" alt="Percevejo-verde 1">
+                <img src="img.pragas/Percevejo-verde2.jpg" alt="Percevejo-verde 2">
+                <img src="img.pragas/Percevejo-verde3.jpg" alt="Percevejo-verde 3">
+                <img src="img.pragas/Percevejo-verde4.jpg" alt="Percevejo-verde 4">
+                <img src="img.pragas/Percevejo-verde5.jpg" alt="Percevejo-verde 5">
+            </div>
+        </div>
+
+        <!-- Vaquinha -->
+        <div class="praga" data-nome="vaquinha">
+            <h2>Vaquinha</h2>
+            <p><strong>Nome científico:</strong> Diabrotica speciosa</p>
+            <p><strong>Ordem:</strong> Coleoptera</p>
+            <p><strong>Origem:</strong> América Latina</p>
+            <p><strong>Tipo de Dano:</strong> Desfolha e perfuração de frutos</p>
+            <div class="imagens">
+                <img src="img.pragas/Vaquinha1.jpg" alt="Vaquinha 1">
+                <img src="img.pragas/Vaquinha2.jpg" alt="Vaquinha 2">
+                <img src="img.pragas/Vaquinha3.jpg" alt="Vaquinha 3">
+                <img src="img.pragas/Vaquinha4.jpg" alt="Vaquinha 4">
+                <img src="img.pragas/Vaquinha5.jpg" alt="Vaquinha 5">
+            </div>
+        </div>
+
+        <!-- Lagarta-rosca -->
+        <div class="praga" data-nome="lagarta-rosca">
+            <h2>Lagarta-rosca</h2>
+            <p><strong>Nome científico:</strong> Agrotis ipsilon</p>
+            <p><strong>Ordem:</strong> Lepidoptera</p>
+            <p><strong>Origem:</strong> Global</p>
+            <p><strong>Tipo de Dano:</strong> Desfolha</p>
+            <div class="imagens">
+                <img src="img.pragas/Lagarta-rosca1.jpg" alt="Lagarta-rosca 1">
+                <img src="img.pragas/Lagarta-rosca2.jpg" alt="Lagarta-rosca 2">
+                <img src="img.pragas/Lagarta-rosca3.jpg" alt="Lagarta-rosca 3">
+                <img src="img.pragas/Lagarta-rosca4.jpg" alt="Lagarta-rosca 4">
+                <img src="img.pragas/Lagarta-rosca5.jpg" alt="Lagarta-rosca 5">
+            </div>
+        </div>
+
+        <!-- Lagarta-falsa-medideira -->
+        <div class="praga" data-nome="lagarta-falsa-medideira">
+            <h2>Lagarta-falsa-medideira</h2>
+            <p><strong>Nome científico:</strong> Pseudaletia sequax</p>
+            <p><strong>Ordem:</strong> Lepidoptera</p>
+            <p><strong>Origem:</strong> América do Sul</p>
+            <p><strong>Tipo de Dano:</strong> Desfolha</p>
+            <div class="imagens">
+                <img src="img.pragas/Lagarta-falsa-medideira1.jpg" alt="Lagarta-falsa-medideira 1">
+                <img src="img.pragas/Lagarta-falsa-medideira2.jpg" alt="Lagarta-falsa-medideira 2">
+                <img src="img.pragas/Lagarta-falsa-medideira3.jpg" alt="Lagarta-falsa-medideira 3">
+                <img src="img.pragas/Lagarta-falsa-medideira4.jpg" alt="Lagarta-falsa-medideira 4">
+                <img src="img.pragas/Lagarta-falsa-medideira5.jpg" alt="Lagarta-falsa-medideira 5">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function pesquisarPragas() {
+            var input = document.getElementById('search').value.toLowerCase();
+            var pragas = document.querySelectorAll('.praga');
+            pragas.forEach(function(praga) {
+                var nomePraga = praga.dataset.nome.toLowerCase();
+                if (nomePraga.includes(input)) {
+                    praga.classList.remove('hidden');
+                } else {
+                    praga.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
